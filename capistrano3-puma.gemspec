@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'capistrano-bundler'
-  spec.add_dependency 'capistrano', '~> 3.7'
-  spec.add_dependency 'puma' , '~> 6.0'
+  spec.add_dependency 'capistrano', '~> 3.19.1'
+  spec.add_dependency 'puma' , '~> 6.4.2'
 
   spec.post_install_message = %q{
     All plugins need to be explicitly installed with install_plugin.

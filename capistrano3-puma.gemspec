@@ -1,11 +1,8 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'capistrano/puma/version'
+# frozen_string_literal: true
 
 Gem::Specification.new do |spec|
   spec.name = 'capistrano3-puma'
-  spec.version = Capistrano::PUMAVERSION
+  spec.version = '6.0.0'
   spec.authors = ['Abdelkader Boudih']
   spec.email = ['Terminale@gmail.com']
   spec.description = %q{Puma integration for Capistrano 3}
@@ -13,17 +10,15 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/seuros/capistrano-puma'
   spec.license = 'MIT'
 
-  spec.required_ruby_version     = '>= 1.9.3'
+  spec.required_ruby_version = '>= 2.5'
 
-  spec.files = `git ls-files`.split($/)
+  spec.files = Dir.glob('lib/**/*') + %w(README.md CHANGELOG.md LICENSE.txt)
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'capistrano', '~> 3.7'
   spec.add_dependency 'capistrano-bundler'
-  spec.add_dependency 'capistrano', '~> 3.19.1'
-  spec.add_dependency 'puma' , '~> 6.4.2'
-
+  spec.add_dependency 'puma', '>= 5.1', '< 7.0'
   spec.post_install_message = %q{
-    All plugins need to be explicitly installed with install_plugin.
-    Please see README.md
+    Version 6.0.0 is a major release. Please see README.md, breaking changes are listed in CHANGELOG.md
   }
 end
